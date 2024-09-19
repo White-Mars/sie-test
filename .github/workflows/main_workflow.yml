@@ -7,11 +7,11 @@ on:
   
 jobs:
   pylint_check:
-    uses: .github/workflows/pylint.yml
+    uses: ./.github/workflows/pylint.yml
   
   codeql_check:
     needs: pylint_check
-    uses: .github/workflows/codeql.yml
+    uses: ./.github/workflows/codeql.yml
 
   upload_artifact:
     needs: codeql_check
