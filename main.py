@@ -4,11 +4,10 @@ import requests
 
 # Dict to store player info
 player_dict = {}
-COUNTER = 1
+Counter = 1
 
 # Querying main API
-URL = 'https://sports.core.api.espn.com/v2/sports/football' \
-'/leagues/nfl/seasons/2023/teams/18/athletes?limit=5'
+URL = 'https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2023/teams/18/athletes?limit=5'
 response = requests.get(URL, timeout=10, verify = False)
 response = response.json()
 response_list = response['items']
