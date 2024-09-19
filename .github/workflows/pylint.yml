@@ -1,9 +1,10 @@
 name: Pull-Request
 
 on:
-  pull_request:
-    types: [opened, reopened]
-  workflow_dispatch:
+  workflow_call
+  #pull_request:
+  #  types: [opened, reopened]
+  #workflow_dispatch:
   
 jobs:
   pylint:
@@ -19,12 +20,6 @@ jobs:
       run: |
         pylint $(git ls-files '*.py')
 
-  upload:
-    needs: [pylint,analyze]
-    runs-on: ubuntu-latest
-    steps:
-    - name: Test Python
-      run: python --version
       
     
   
