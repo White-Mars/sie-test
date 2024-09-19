@@ -1,4 +1,4 @@
-name: Main_Workflow
+ecname: Main_Workflow
 
 on:
   pull_request:
@@ -17,7 +17,7 @@ jobs:
     needs: codeql_check
     runs-on: ubuntu-latest
     steps:
-    - name: Python version test
-      run: python --version
+    - name: Executing the code
+      run: python ./main.py
 
 
