@@ -1,4 +1,4 @@
-ecname: Main_Workflow
+name: Main_Workflow
 
 on:
   pull_request:
