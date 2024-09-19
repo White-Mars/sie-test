@@ -1,4 +1,4 @@
-name: Pull-Request
+name: PyLint
 
 on:
   workflow_call
