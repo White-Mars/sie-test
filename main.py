@@ -1,20 +1,21 @@
+"""Importing json to write a .json file and requests to query API"""
 import json
 import requests
 
-# Dict to stor eplayer info
+# Dict to store player info
 player_dict = {}
 counter = 1
 
- # Querying main API
-
-response = requests.get('https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2023/teams/18/athletes?limit=5', verify = False)
+# Querying main API
+url = 'https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2023/teams/18/athletes?limit=5'
+response = requests.get(url, timeout=10, verify = False)
 response = response.json()
 response_list = response['items']
 
 # Querying player API to get deatils
 for url_dict in response_list:
     player_details = []
-    player_resp = requests.get(url_dict['$ref'], verify = False)
+    player_resp = requests.get(url_dict['$ref'], timeout=10, verify = False)
     player_resp = player_resp.json()
     player_details.append(player_resp['firstName'])
     player_details.append(player_resp['lastName'])
@@ -31,6 +32,5 @@ player_dict[2][2] = 99
 del player_dict[3]
 
 # Writing the output into a JSON file
-with open('final.json', 'w') as output_file:
+with open('final.json', 'w', encoding="utf-8") as output_file:
     json.dump(player_dict,output_file)
-
