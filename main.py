@@ -1,5 +1,5 @@
-import requests
 import json
+import requests
 
 # Dict to stor eplayer info
 player_dict = {}
@@ -19,7 +19,7 @@ for url_dict in response_list:
     player_details.append(player_resp['firstName'])
     player_details.append(player_resp['lastName'])
     player_details.append(player_resp['age'])
- 
+
     player_dict[counter] = player_details
     counter += 1
 
@@ -31,6 +31,7 @@ player_dict[2][2] = 99
 del player_dict[3]
 
 # Writing the output into a JSON file
-output_file = open('final.json', 'w')
-json.dump(player_dict,output_file)
-output_file.close()
+with open(('final.json', 'w') as output_file
+ #output_file = open('final.json', 'w')
+ json.dump(player_dict,output_file)
+ #output_file.close()
