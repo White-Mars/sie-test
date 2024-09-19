@@ -4,11 +4,12 @@ import requests
 
 # Dict to store player info
 player_dict = {}
-counter = 1
+COUNTER = 1
 
 # Querying main API
-url = 'https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2023/teams/18/athletes?limit=5'
-response = requests.get(url, timeout=10, verify = False)
+URL = 'https://sports.core.api.espn.com/v2/sports/football' \
+'/leagues/nfl/seasons/2023/teams/18/athletes?limit=5'
+response = requests.get(URL, timeout=10, verify = False)
 response = response.json()
 response_list = response['items']
 
@@ -21,8 +22,8 @@ for url_dict in response_list:
     player_details.append(player_resp['lastName'])
     player_details.append(player_resp['age'])
 
-    player_dict[counter] = player_details
-    counter += 1
+    player_dict[COUNTER] = player_details
+    COUNTER += 1
 
 
 # Updating 2nd player age to 99
