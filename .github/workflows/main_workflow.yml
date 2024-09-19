@@ -1,5 +1,4 @@
-name: Main_Workflow
-
+name: Pull_Request_Workflow
 on:
   pull_request:
     types: [opened, reopened]
@@ -12,21 +11,4 @@ jobs:
   codeql_check:
     needs: pylint_check
     uses: ./.github/workflows/codeql.yml
-
-  upload_artifact:
-    needs: codeql_check
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-    - name: Executing the code
-      run: python main.py
-    - name: Pushing the artifact
-      run: |
-        git config --global user.name "github-actions"
-        git config --global user.email "actions@github.com"
-        git add final.json
-        git commit -m "Uploading the artifact"
-        git push
-
 
