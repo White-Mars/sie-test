@@ -25,7 +25,7 @@ jobs:
       run: |
         git config --global user.name "github-actions"
         git config --global user.email "actions@github.com"
-        git rev-parse --abbrev-ref HEAD
+        git branch --show-current
         git add final.json
         git commit -m "Uploading the artifact"
         git push
