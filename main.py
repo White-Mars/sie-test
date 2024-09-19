@@ -32,6 +32,5 @@ del player_dict[3]
 
 # Writing the output into a JSON file
 with open('final.json', 'w') as output_file:
- #output_file = open('final.json', 'w')
- json.dump(player_dict,output_file)
- #output_file.close()
+    json.dump(player_dict,output_file)
+
