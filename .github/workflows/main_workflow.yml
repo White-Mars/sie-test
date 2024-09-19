@@ -17,6 +17,8 @@ jobs:
     needs: codeql_check
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
     - name: Executing the code
       run: python main.py
 
