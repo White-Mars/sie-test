@@ -18,6 +18,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Executing the code
-      run: python ./main.py
+      run: python main.py
 
 
