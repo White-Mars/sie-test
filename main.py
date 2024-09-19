@@ -8,7 +8,7 @@ COUNTER = 1
 
 # Querying main API
 URL = 'https://sports.core.api.espn.com/v2/sports/football' \
-'/leagues/nfl/seasons/2023/teams/18/athletes?limit=5'
+'/leagues/nfl/seasons/2023/teams/18/athletes?limit=6'
 response = requests.get(URL, timeout=10, verify = False)
 response = response.json()
 response_list = response['items']
