@@ -18,6 +18,13 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
-        
+
+  upload:
+    needs: [pylint,analyze]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Test Python
+      run: python --version
+      
     
   
